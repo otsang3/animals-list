@@ -12,12 +12,22 @@ const dogs = [
   { name: "Luna", breed: "Husky" }
 ];
 
+const cats = [
+{ name: "Tiddles", breed: "Siberian" },
+{ name: "Patch", breed: "Bengal" },
+{ name: "Socks", breed: "British Shorthair" },
+{ name: "Mr Bigglesworth", breed: "Persian" },
+{ name: "Monty", breed: "Maine Coon" }
+];
+
 app.use(cors());
 app.use(bodyParser.json())
 
 const dogRouter = createRouter(dogs)
+const catRouter = createRouter(cats)
 
 app.use('/api/dogs', dogRouter)
+app.use('/api/cats', catRouter)
 
 app.listen(3000, function(){
   console.log(`App running on port ${ this.address().port}`);
